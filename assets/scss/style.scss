@@ -126,6 +126,7 @@ body {
       font-size: 39px;
       font-weight: 400;
       margin: 0 auto;
+      padding: 0;
 
       &:active {
         background-color: #737373;
@@ -228,3 +229,8 @@ body {
   }
 }
 
+@media only screen and (min-width: 390px) and (max-width: 767px) {
+  body {
+    transform: scale(85%);
+  }
+}

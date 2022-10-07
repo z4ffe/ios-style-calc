@@ -118,6 +118,7 @@ body {
   font-size: 39px;
   font-weight: 400;
   margin: 0 auto;
+  padding: 0;
 }
 .wrapper .pads .pads__btn:active {
   background-color: #737373;
@@ -206,6 +207,11 @@ body {
   }
   100% {
     transform: translateY(0%);
+  }
+}
+@media only screen and (min-width: 390px) and (max-width: 767px) {
+  body {
+    transform: scale(85%);
   }
 }
 
