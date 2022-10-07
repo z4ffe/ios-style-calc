@@ -201,10 +201,5 @@ body {
     transform: translateY(0%);
   }
 }
-@media only screen and (min-width: 390px) and (max-width: 767px) {
-  .wrapper .result .result__text {
-    font-weight: 900;
-  }
-}
 
 /*# sourceMappingURL=style.css.map */
