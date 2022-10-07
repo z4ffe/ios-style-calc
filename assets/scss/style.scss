@@ -112,6 +112,7 @@ body {
     gap: 12px 12px;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
+    width: 95%;
 
     .pads__btn {
       color: white;
@@ -124,6 +125,7 @@ body {
       transition: .2s;
       font-size: 39px;
       font-weight: 400;
+      margin: 0 auto;
 
       &:active {
         background-color: #737373;

@@ -104,6 +104,7 @@ body {
   gap: 12px 12px;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 1fr);
+  width: 95%;
 }
 .wrapper .pads .pads__btn {
   color: white;
@@ -116,6 +117,7 @@ body {
   transition: 0.2s;
   font-size: 39px;
   font-weight: 400;
+  margin: 0 auto;
 }
 .wrapper .pads .pads__btn:active {
   background-color: #737373;
