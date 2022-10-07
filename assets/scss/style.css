@@ -1,6 +1,6 @@
 @font-face {
   font-family: "SF-Pro";
-  src: url("./assets/fonts/SF-Pro.ttf");
+  src: url("../fonts/SF-Pro.ttf");
 }
 * {
   color: black;
@@ -173,7 +173,7 @@ body {
   margin: auto;
   width: 150px;
   height: 150px;
-  background-image: url("./assets/img/icon.png");
+  background-image: url("../img/icon.png");
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
