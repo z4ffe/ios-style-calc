@@ -109,7 +109,7 @@ body {
   .pads {
     margin: 22px auto 15px;
     display: grid;
-    gap: 13px 0px;
+    gap: 13px 0;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     width: 95%;
@@ -123,8 +123,8 @@ body {
       border: none;
       cursor: pointer;
       transition: .2s;
-      font-size: 39px;
-      font-weight: 400;
+      /*font-size: 39px;
+      font-weight: 400;*/
       margin: 0 auto;
 
       &:active {
