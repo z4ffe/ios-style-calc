@@ -3,10 +3,6 @@
   src: url("../fonts/SF-Pro.ttf");
 }
 * {
-  color: black;
-}
-
-* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
