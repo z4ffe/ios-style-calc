@@ -151,7 +151,7 @@ body {
 
     .pads__btn--zero {
       width: 165px;
-      padding-left: 20px;
+      padding-left: 28px;
       text-align: left;
       border-radius: 50px;
       grid-column-start: 1;
@@ -222,3 +222,8 @@ body {
   }
 }
 
+@media only screen and (min-width: 390px) and (max-width: 767px) {
+  * {
+    font-weight: 800;
+  }
+}

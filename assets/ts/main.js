@@ -117,13 +117,13 @@ var Calculator = /** @class */ (function () {
     };
     Calculator.prototype.render = function () {
         var _this = this;
-        window.onclick = function () {
-            console.log("FIRST NUMBER: ".concat(_this.firstNumber));
-            console.log("SECOND NUMBER: ".concat(_this.secondNumber));
-            console.log("MODE: ".concat(_this.mode));
-            console.log("SUM: ".concat(_this.sum));
-            console.log("OPERAND: ".concat(_this.operand));
-        };
+        /*window.onclick = () => {
+            console.log(`FIRST NUMBER: ${this.firstNumber}`);
+            console.log(`SECOND NUMBER: ${this.secondNumber}`);
+            console.log(`MODE: ${this.mode}`);
+            console.log(`SUM: ${this.sum}`);
+            console.log(`OPERAND: ${this.operand}`);
+        }*/
         this.el.dot.onclick = function () {
             if (_this.firstNumber && !_this.secondNumber) {
                 _this.firstNumber += '.';

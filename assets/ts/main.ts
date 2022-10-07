@@ -124,13 +124,13 @@ class Calculator {
 
 
     render() {
-        window.onclick = () => {
+        /*window.onclick = () => {
             console.log(`FIRST NUMBER: ${this.firstNumber}`);
             console.log(`SECOND NUMBER: ${this.secondNumber}`);
             console.log(`MODE: ${this.mode}`);
             console.log(`SUM: ${this.sum}`);
             console.log(`OPERAND: ${this.operand}`);
-        }
+        }*/
         this.el.dot.onclick = () => {
             if (this.firstNumber && !this.secondNumber) {
                 this.firstNumber += '.'
