@@ -12,6 +12,10 @@
   font-family: 'SF Pro Display', sans-serif;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   display: flex;
   width: 100vw;
@@ -220,3 +224,4 @@ body {
     transform: translateY(0%);
   }
 }
+
