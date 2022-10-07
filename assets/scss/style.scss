@@ -109,7 +109,7 @@ body {
   .pads {
     margin: 22px auto 15px;
     display: grid;
-    gap: 12px 12px;
+    gap: 13px 0px;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     width: 95%;
@@ -156,7 +156,7 @@ body {
 
     .pads__btn--zero {
       width: 165px;
-      padding-left: 28px;
+      padding-left: 25px;
       text-align: left;
       border-radius: 50px;
       grid-column-start: 1;
