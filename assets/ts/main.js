@@ -8,7 +8,8 @@ var elements = {
     wrapper: document.querySelector('.wrapper'),
     wrapperIcon: document.querySelector('#wrapper-icon'),
     switch: document.querySelectorAll('.switch'),
-    dot: document.querySelector('#dot')
+    dot: document.querySelector('#dot'),
+    plusminus: document.querySelector('#plusminus')
 };
 var Calculator = /** @class */ (function () {
     function Calculator(elements) {
@@ -95,25 +96,49 @@ var Calculator = /** @class */ (function () {
         this.secondNumber = '';
     };
     Calculator.prototype.calculate = function () {
-        if (this.operand === 'divide') {
-            this.sum = "".concat((parseFloat(this.firstNumber) / parseFloat(this.secondNumber)));
+        if (this.firstNumber && this.secondNumber) {
+            if (this.operand === 'divide') {
+                this.sum = "".concat((parseFloat(this.firstNumber) / parseFloat(this.secondNumber)));
+            }
+            else if (this.operand === 'multiply') {
+                this.sum = "".concat((parseFloat(this.firstNumber) * parseFloat(this.secondNumber)));
+            }
+            else if (this.operand === 'plus') {
+                this.sum = "".concat((parseFloat(this.firstNumber) + parseFloat(this.secondNumber)));
+            }
+            else if (this.operand === 'minus') {
+                this.sum = "".concat((parseFloat(this.firstNumber) - parseFloat(this.secondNumber)));
+            }
+            this.result();
         }
-        else if (this.operand === 'multiply') {
-            this.sum = "".concat((parseFloat(this.firstNumber) * parseFloat(this.secondNumber)));
-        }
-        else if (this.operand === 'plus') {
-            this.sum = "".concat((parseFloat(this.firstNumber) + parseFloat(this.secondNumber)));
-        }
-        else if (this.operand === 'minus') {
-            this.sum = "".concat((parseFloat(this.firstNumber) - parseFloat(this.secondNumber)));
-        }
-        this.result();
     };
     Calculator.prototype.operandsOff = function () {
         this.el.btnOperand.forEach(function (e) {
             e.style.setProperty('background-color', '#FF9F07');
             e.style.setProperty('color', '#fff');
         });
+    };
+    Calculator.prototype.plusminus = function () {
+        if (this.secondNumber) {
+            if (this.secondNumber[0] === '-') {
+                this.secondNumber = this.secondNumber.slice(1);
+                this.el.result.textContent = this.secondNumber.replace('.', ',');
+            }
+            else {
+                this.secondNumber = '-' + this.secondNumber;
+                this.el.result.textContent = this.secondNumber.replace('.', ',');
+            }
+        }
+        else {
+            if (this.firstNumber[0] === '-') {
+                this.firstNumber = this.firstNumber.slice(1);
+                this.el.result.textContent = this.firstNumber.replace('.', ',');
+            }
+            else {
+                this.firstNumber = '-' + this.firstNumber;
+                this.el.result.textContent = this.firstNumber.replace('.', ',');
+            }
+        }
     };
     Calculator.prototype.render = function () {
         var _this = this;
@@ -124,6 +149,9 @@ var Calculator = /** @class */ (function () {
             console.log(`SUM: ${this.sum}`);
             console.log(`OPERAND: ${this.operand}`);
         }*/
+        this.el.plusminus.onclick = function () {
+            _this.plusminus();
+        };
         this.el.dot.onclick = function () {
             if (_this.firstNumber && !_this.secondNumber) {
                 _this.firstNumber += '.';
