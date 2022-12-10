@@ -65,9 +65,7 @@ class Calc {
    }
 
    #calculate(btn) {
-	  if (this.current && this.memory && this.operand === btn.dataset.key && this.operandActive && btn.dataset.key !== 'equal') {
-		this.#calcLogic()
-	  }
+	  if (this.current && this.memory && this.operand === btn.dataset.key && this.operandActive && btn.dataset.key !== 'equal') this.#calcLogic()
 	  let operand = btn.dataset.key
 	  if (!this.operandActive && btn.dataset.key !== 'equal') this.operandHighlight(true, btn)
 	  else if (this.operandActive && btn.dataset.key !== 'equal') {
