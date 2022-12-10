@@ -51,7 +51,7 @@ class Calc {
 	  this.memory = this.current
 	  this.current = ''
    }
-   
+
    #calcLogic() {
 	  if (this.operand === 'divide' && this.current) this.result = (+this.memory / +this.current).toString()
 	  if (this.operand === 'multiply' && this.current) this.result = (+this.memory * +this.current).toString()
@@ -130,7 +130,7 @@ class Calc {
 	  } else if (e.key === 'Backspace') {
 		 if (this.current) {
 			this.current = this.current.slice(0, -1)
-			this.#resultWindow()
+			this.#numberWindow()
 		 }
 	  } else if (e.key === '/') this.#calculate(this.el.divide)
 	  else if (e.key === '*') this.#calculate(this.el.multiply)
