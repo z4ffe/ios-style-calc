@@ -46,7 +46,28 @@ class Calc {
 
    }
 
+   currentRefresh() {
+	  this.init = false
+	  this.memory = this.current
+	  this.current = ''
+   }
+   
+   #calcLogic() {
+	  if (this.operand === 'divide' && this.current) this.result = (+this.memory / +this.current).toString()
+	  if (this.operand === 'multiply' && this.current) this.result = (+this.memory * +this.current).toString()
+	  if (this.operand === 'plus' && this.current) this.result = (+this.memory + +this.current).toString()
+	  if (this.operand === 'minus' && this.current) this.result = (+this.memory - +this.current).toString()
+	  this.#resultWindow()
+	  this.memory = this.result
+	  this.current = ''
+	  this.operand = ''
+	  this.operandHighlight(false, this.operandActive)
+   }
+
    #calculate(btn) {
+	  if (this.current && this.memory && this.operand === btn.dataset.key && this.operandActive && btn.dataset.key !== 'equal') {
+		this.#calcLogic()
+	  }
 	  let operand = btn.dataset.key
 	  if (!this.operandActive && btn.dataset.key !== 'equal') this.operandHighlight(true, btn)
 	  else if (this.operandActive && btn.dataset.key !== 'equal') {
@@ -54,42 +75,26 @@ class Calc {
 		 this.operandHighlight(true, btn)
 	  }
 	  if (btn.dataset.key !== 'equal') this.operandActive = btn
-	  const currentRefresh = () => {
-		 this.init = false
-		 this.memory = this.current
-		 this.current = ''
-	  }
 	  switch (operand) {
 		 case('divide'):
 			this.operand = operand
-			if (this.init) currentRefresh()
+			if (this.init) this.currentRefresh()
 			break;
 		 case('multiply'):
 			this.operand = operand
-			if (this.init) currentRefresh()
+			if (this.init) this.currentRefresh()
 			break;
 		 case('plus'):
 			this.operand = operand
-			if (this.init) currentRefresh()
+			if (this.init) this.currentRefresh()
 			break;
 		 case('minus'):
 			this.operand = operand
-			if (this.init) currentRefresh()
+			if (this.init) this.currentRefresh()
 			break;
 		 case('equal'):
 			if (this.current && this.memory) {
-			   if (this.operand === 'divide' && this.current) this.result = (+this.memory / +this.current)
-			   if (this.operand === 'multiply' && this.current) this.result = (+this.memory * +this.current)
-			   if (this.operand === 'plus' && this.current) this.result = (+this.memory + +this.current)
-			   if (this.operand === 'minus' && this.current) this.result = (+this.memory - +this.current)
-			   this.#resultWindow()
-			   this.memory = this.result
-			   this.current = ''
-			   this.operand = ''
-			   this.operandHighlight(false, this.operandActive)
-			   console.log(`Current: ${this.current}`)
-			   console.log(`Memory: ${this.memory}`)
-			   console.log(`Result: ${this.result}`)
+			   this.#calcLogic()
 			}
 	  }
    }
@@ -129,11 +134,11 @@ class Calc {
 			this.current = this.current.slice(0, -1)
 			this.#resultWindow()
 		 }
-	  } else if (e.key === '/') this.#calculate(this.el.btnOperand[0])
-	  else if (e.key === '*') this.#calculate(this.el.btnOperand[1])
-	  else if (e.key === '-') this.#calculate(this.el.btnOperand[2])
-	  else if (e.key === '+') this.#calculate(this.el.btnOperand[3])
-	  else if (e.key === '=' || e.key === 'Enter') this.#calculate(this.el.btnOperand[4])
+	  } else if (e.key === '/') this.#calculate(this.el.divide)
+	  else if (e.key === '*') this.#calculate(this.el.multiply)
+	  else if (e.key === '-') this.#calculate(this.el.minus)
+	  else if (e.key === '+') this.#calculate(this.el.plus)
+	  else if (e.key === '=' || e.key === 'Enter') this.#calculate(this.el.equal)
 	  else if (e.key === '.' || e.key === ',') this.#dotHandler()
 	  else if (e.key === 'r' || e.key === 'c') this.#reset()
 	  else if (e.key === '%') this.#percentage()

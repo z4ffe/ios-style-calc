@@ -10,7 +10,11 @@ const elements = {
    home: document.querySelector('#home'),
    dot: document.querySelector('#dot'),
    plusMinus: document.querySelector('#plusminus'),
-   percent: document.querySelector('#percent')
+   percent: document.querySelector('#percent'),
+   divide: document.querySelector('#divide'),
+   multiply: document.querySelector('#multiply'),
+   minus: document.querySelector('#minus'),
+   plus: document.querySelector('#plus')
 }
 
 export default elements
