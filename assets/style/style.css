@@ -213,9 +213,24 @@ body {
     transform: translateY(0%);
   }
 }
-@media only screen and (min-width: 390px) and (max-width: 767px) {
-  body {
-    transform: scale(85%);
+@media only screen and (max-width: 430px) {
+  .wrapper {
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .wrapper .speaker {
+    display: none;
+  }
+  .wrapper .camera {
+    display: none;
+  }
+  .wrapper .camera-frame {
+    display: none;
+  }
+  .wrapper .result {
+    margin-top: 2rem;
   }
 }
 
